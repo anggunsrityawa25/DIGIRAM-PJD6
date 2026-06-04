@@ -3,6 +3,10 @@
 import { useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 
+const API_URL =
+  import.meta.env.VITE_API_URL ||
+  'https://digiram-pjd6-production.up.railway.app';
+
 const rolePermissions: Record<string, { label: string; allowed: boolean }[]> = {
   hospital: [
     { label: 'Mengisi penilaian mandiri EMRAM', allowed: true },
@@ -115,7 +119,7 @@ export function PengaturanAkses({ onLogout }: PengaturanAksesProps) {
 
     try {
       const token = localStorage.getItem('digiram_token');
-      const res = await fetch('import.meta.env.VITE_API_URL/api/user/update-profile', {
+      const res = await fetch(`${API_URL}/api/user/update-profile`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
