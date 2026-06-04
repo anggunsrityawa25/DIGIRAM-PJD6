@@ -3,6 +3,8 @@
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import type { User } from '../types';
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 interface HospitalData {
   id: number;
   name: string;
@@ -62,7 +64,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const loginWithCredentials = async (username: string, password: string): Promise<boolean> => {
     try {
-      const response = await fetch('import.meta.env.VITE_API_URL/api/login', {
+      const response = await fetch(`${API_URL}/api/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify({ email: username, password }),
@@ -117,7 +119,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const logout = async () => {
     const currentToken = localStorage.getItem('digiram_token');
     try {
-      await fetch('import.meta.env.VITE_API_URL/api/logout', {
+      await fetch(`${API_URL}/api/logout`, {
         method: 'POST',
         headers: { 'Authorization': `Bearer ${currentToken}`, 'Accept': 'application/json' },
       });
