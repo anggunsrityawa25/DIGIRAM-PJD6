@@ -14,7 +14,10 @@ return Application::configure(basePath: dirname(__DIR__))
     )
 
     ->withMiddleware(function (Middleware $middleware): void {
-        //
+        // ✅ FIX: Daftarkan CORS middleware agar frontend Vercel bisa akses backend Railway
+        $middleware->use([
+            \Illuminate\Http\Middleware\HandleCors::class,
+        ]);
     })
 
     ->withExceptions(function (Exceptions $exceptions): void {
