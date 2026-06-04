@@ -1,5 +1,3 @@
-// FILE: src/components/PengaturanAkses.tsx
-
 import { useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 
@@ -123,10 +121,15 @@ export function PengaturanAkses({ onLogout }: PengaturanAksesProps) {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Accept': 'application/json',
-          'Authorization': `Bearer ${token}`,
+          Accept: 'application/json',
+          Authorization: `Bearer ${token}`,
         },
-        body: JSON.stringify({ name: nama, email, jabatan, no_telp: noTelp }),
+        body: JSON.stringify({
+          name: nama,
+          email,
+          jabatan,
+          no_telp: noTelp,
+        }),
       });
 
       const data = await res.json();
