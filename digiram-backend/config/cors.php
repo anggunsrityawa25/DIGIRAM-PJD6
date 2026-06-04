@@ -19,7 +19,7 @@ return [
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['https://digiram.vercel.app', 'http://127.0.0.1:5173',],
+    'allowed_origins' => ['https://digiram-pjd-6-7o4o.vercel.app', 'http://127.0.0.1:5173',],
 
     'allowed_origins_patterns' => [],
 
