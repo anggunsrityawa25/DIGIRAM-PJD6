@@ -115,7 +115,7 @@ export function PengaturanAkses({ onLogout }: PengaturanAksesProps) {
 
     try {
       const token = localStorage.getItem('digiram_token');
-      const res = await fetch('http://localhost:8000/api/user/update-profile', {
+      const res = await fetch('import.meta.env.VITE_API_URL/api/user/update-profile', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
