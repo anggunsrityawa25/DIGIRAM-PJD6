@@ -1,7 +1,8 @@
 // FILE: src/services/api.ts
 // GANTI SELURUH ISI FILE INI
- 
-const BASE_URL = 'http://localhost:8000/api';
+
+const BASE_URL =
+  `${import.meta.env.VITE_API_URL}/api`;
  
 function getToken(): string {
   return localStorage.getItem('digiram_token') ?? '';
