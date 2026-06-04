@@ -6,6 +6,12 @@ use App\Http\Controllers\HospitalController;
 use App\Http\Controllers\EmramAssessmentController;
 use App\Http\Controllers\EmramInstrumentController;
 
+Route::get('/health', function () {
+    return response()->json([
+        'status' => 'ok',
+        'app' => 'DIGIRAM'
+    ]);
+});
 // ── ROUTE PUBLIK ─────────────────────────────────────────────
 Route::post('/login', [AuthController::class, 'login']);
 Route::apiResource('hospitals', HospitalController::class);
