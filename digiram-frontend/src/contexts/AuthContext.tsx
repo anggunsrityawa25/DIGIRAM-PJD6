@@ -3,7 +3,9 @@
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import type { User } from '../types';
 
-const API_URL = import.meta.env.VITE_API_URL;
+const API_URL =
+  import.meta.env.VITE_API_URL ||
+  'https://digiram-pjd6-production.up.railway.app';
 
 interface HospitalData {
   id: number;
